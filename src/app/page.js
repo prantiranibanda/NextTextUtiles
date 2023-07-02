@@ -1,28 +1,37 @@
+"use client"
+import { useState } from "react";
+import Button from "@/components/Button";
+
 export default function Home() {
+
+  const [text, setText] = useState("");
+
+  const handleOnChange =(event)=>{
+    setText(event.target.value);
+  }
+  //console.log(text);
+  
   return (
   <>
     <body>
-      <nav className="bg-violet-600">
+      <nav className="bg-emerald-500">
         <ul className="flex ">
           <img src="" alt="" />
-          <h1 className="m-4 pr-6 text-white text-xl font-bold">TextUtils</h1>
-          <li className="m-4 text-white hover: cursor-pointer hover:text-purple-400">Home</li>
-          <li className="m-4 text-white hover: cursor-pointer hover:text-purple-400">About</li>
+          <h1 className="m-4 pr-6 text-yellow-100 text-xl font-bold">TextUtils</h1>
+          <li className="m-4 text-emerald-100 hover: cursor-pointer hover:text-white ">Home</li>
+          <li className="m-4 text-emerald-100 hover: cursor-pointer hover:text-white ">About</li>
         </ul>
       </nav>
       <div className="pl-[400px] mt-8">
         
-        <div><h1 className="font-serif text-4xl text-violet-800">Enter the text to analyze:</h1></div>
+        <div><h1 className="font-serif text-4xl text-emerald-600">Enter the text to analyze:</h1></div>
         <div>
         <form className="mt-4">
-          <textarea name="text" id="text" cols="75" rows="6" placeholder="Enter any text..." type="text" className="text-lg placeholder:italic " ></textarea>
+          <textarea name="text" cols="75" rows="6" placeholder="Enter any text..." type="text" value={text} onChange={handleOnChange} className="text-lg p-3 border border-blue-400 placeholder:italic" ></textarea>
         </form>
         </div>
         <div className="mt-3">
-          <button className="p-4 mr-3 rounded-3xl border-violet-900 text-white bg-violet-800 hover:cursor-pointer hover:bg-violet-700">Convert to Uppercase</button>
-          <button className="p-4 mr-3 rounded-3xl border-violet-900 text-white bg-violet-800 hover:cursor-pointer hover:bg-violet-700">Convert to Lowercase</button>
-          <button className="p-4 mr-3 rounded-3xl border-violet-900 text-white bg-violet-800 hover:cursor-pointer hover:bg-violet-700">Copy Text</button>
-          <button className="p-4 mr-3 rounded-3xl border-violet-900 text-white bg-violet-800 hover:cursor-pointer hover:bg-violet-700">Clear Text</button>
+          <Button text={text} setText={setText}/>
         </div>
       </div>  
     </body>
