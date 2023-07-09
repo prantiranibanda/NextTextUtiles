@@ -1,6 +1,8 @@
 "use client"
 import { useState } from "react";
+import Link from "next/link";
 import Button from "@/components/Button";
+
 
 export default function Home() {
 
@@ -18,8 +20,8 @@ export default function Home() {
         <ul className="flex ">
           <img src="" alt="" />
           <h1 className="m-4 pr-6 text-yellow-100 text-xl font-bold">TextUtils</h1>
-          <li className="m-4 text-emerald-100 hover: cursor-pointer hover:text-white ">Home</li>
-          <li className="m-4 text-emerald-100 hover: cursor-pointer hover:text-white ">About</li>
+          <Link href="/"><li className="m-4 text-emerald-100 hover: cursor-pointer hover:text-white ">Home</li></Link>
+          <Link href='/about'><li className="m-4 text-emerald-100 hover: cursor-pointer hover:text-white ">About</li></Link>
         </ul>
       </nav>
       <div className="pl-[400px] mt-8">
